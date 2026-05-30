@@ -1,0 +1,10 @@
+loginApp {
+    window "Login" {
+        panel "Login Form" {
+            field "Username:" name username type text
+            field "Password:" name password type password
+            button "Login" action login
+            button "Cancel" action cancel
+        }
+    }
+}

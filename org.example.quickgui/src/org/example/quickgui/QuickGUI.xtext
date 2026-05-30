@@ -1,0 +1,44 @@
+grammar org.example.quickgui2.QuickGUI with org.eclipse.xtext.common.Terminals
+
+generate quickGUI "http://www.example.org/quickgui2/QuickGUI"
+
+Program:
+    'loginApp' '{'
+        window=Window
+    '}'
+;
+
+Window:
+    'window' title=STRING '{'
+        panel=Panel
+    '}'
+;
+
+Panel:
+    'panel' title=STRING '{'
+        components+=Component*
+    '}'
+;
+
+Component:
+      Field
+    | Button
+;
+
+Field:
+    'field' label=STRING 'name' name=ID 'type' type=FieldType
+;
+
+Button:
+    'button' text=STRING 'action' action=ButtonAction
+;
+
+enum FieldType:
+      text='text'
+    | password='password'
+;
+
+enum ButtonAction:
+      login='login'
+    | cancel='cancel'
+;
